@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>Voos Online!</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <script language="javascript" type="text/javascript" src="./vendor/jquery.js"></script>
+        <script language="javascript" type="text/javascript" src="./vendor/ICanHaz.min.js"></script>
+        <script language="javascript" type="text/javascript" src="./js/templatelogic.js"></script>
+        <script language="javascript" type="text/javascript" src="./js/query.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/main.css" />
+        <style>
+        
+        </style>
+        <script id="resumoCanHaz" type="text/html">
+            <h2>Até hoje {{ passageiros }} pessoas viajaram por {{ dias }} totalizando {{ reais }}.</h2>
+            <h3>O príncipal destino foi {{ maior.cidade.nome }} com {{ maior.cidade.viagens }} viagens.</h3>
+            <h3>O orgão que mais viajou foi {{ maior.orgao.nome }} com {{maior.orgao.viagens }} viagens.</h3>
+            <h3>O passageiro que mais viajou foi {{ maior.passageiro.nome }} e viajou {{ maior.passageiro.viagens }} vezes!!!</h3>
+            <b>A última viagem foi feita por {{ ultima.viagem.nome }} do {{ ultima.viagem.orgao }} para {{ ultima.viagem.destino }}
+            em {{ ultima.viagem.data }} e durou {{ ultima.viagem.duracao }} dias.</b>
+        </script>
+        
+        <script id="viagemCanHaz" type="text/html">
+            <p><b>{{ nome }}</b> do <b>{{ orgao }}</b> viajou para <b>{{ destino }}</b>
+            em <b>{{ data }}</b> e por <b>{{ duracao }}</b> dias.</p>
+        </script>
+        
+        <script id="top15CanHaz" type="text/html">
+            //todo
+        </script>
+
+        <script id="mapaCanHaz" type="text/html">
+            //todo
+        </script>
+        
+        <script>
+            $(document).ready(function() {
+                var q = my.query;
+                carregaFiltros(q);
+                render(q, "viagem");
+            });
+        </script>
+        
+    </head>
+    <body>
+    <div class="container">
+        <div id="header">
+            <h1>Voos Online!</h1>
+        </div>
+        <div id="resumo">
+        </div>
+        <div id="viagem"></div>
+    </div>
+    </body>
+</html>
