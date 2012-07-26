@@ -27,17 +27,17 @@ my.query = {
                 }
             }
         },
-    "size" : 15,
+    "size" : 6,
     "from" : 0,
     "sort" : {
-        "DataFim" : { "order" : "desc" }
+        "DataInicio" : { "order" : "desc" }
     }
 };
 
 //roubado do acontecenacamara
 function gup( name ) {
   name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regexS = "[\\?&]"+name+"=([^&#/]*)";
   var regex = new RegExp( regexS );
   var results = regex.exec( window.location.href );
   if( results == null )
@@ -76,7 +76,7 @@ function carregaFiltros(q) {
     
     if (gup("destino")) {
         filters.push({ term : { "Destino" : gup("destino") }});
-        //$("input#estado").val(gup("estado"));
+        $("input#destino").val(gup("destino"));
     }
     
     if (gup("favorecido")) {

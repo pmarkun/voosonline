@@ -8,7 +8,7 @@ t.resumo.query = function(query) {
         "passageiros" : {
             "terms" : {
                 "field" : "Favorecido",
-                "size" : 40000
+                "size" : 40
                 }
             },
         "orgao" : {
@@ -28,15 +28,40 @@ t.resumo.query = function(query) {
                 "field" : "Destino",
                 "size" : 1
                 }
+            },
+        "valor" : {
+            "statistical" : {
+                "field" : "Valor",
+                }
+            },
+        "duracao" : {
+            "statistical" : {
+                "field" : "Quantidade",
+                }
             }
         };
     return query;
 }
 t.resumo.render =  function(raw_data) {
+    var reais = Math.round(raw_data.facets.valor.total);
+    if (reais > 1000000) {
+        reais = Math.round(reais/1000000).toString() + " milhões de reais";
+    }
+    else if (reais > 1000) {
+        reais = Math.round(reais/1000).toString() + " mil reais";
+    }
+    
+    var dias = raw_data.facets.duracao.total;
+    if (dias > 365) {
+        dias = Math.round(dias/365).toString() + " anos";
+    }
+    else {
+        dias = dias.toString() + " dias";
+    }
     var data = {};
     data.passageiros = raw_data.facets.cidade.total;
-    data.dias = "x";
-    data.reais = "R$x";
+    data.dias = dias;
+    data.reais = reais;
     data.maior = {};
     data.maior.cidade = {};
     data.maior.cidade.nome = raw_data.facets.cidade.terms[0].term;

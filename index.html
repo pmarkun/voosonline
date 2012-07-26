@@ -2,16 +2,33 @@
 	<head>
 		<title>Voos Online!</title>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script language="javascript" type="text/javascript" src="./vendor/jquery.js"></script>
         <script language="javascript" type="text/javascript" src="./vendor/ICanHaz.min.js"></script>
+        <script language="javascript" type="text/javascript" src="./vendor/protoFluid3.02.js"></script>
         <script language="javascript" type="text/javascript" src="./js/templatelogic.js"></script>
         <script language="javascript" type="text/javascript" src="./js/query.js"></script>
+        <link rel="stylesheet" type="text/css" href="./vendor/bootstrap/2.0.0/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="./vendor/bootstrap/2.0.0/bootstrap-responsive.min.css" />
         <link rel="stylesheet" type="text/css" href="./css/main.css" />
+
         <style>
-        
+            .viagem {
+                clear:both;
+            }
+            
+            .viagem p {
+                font-size:0.7em;
+                float:left;
+                width: 80%;
+            }
+            .viagem button {
+                width:15%;
+                float:right;
+            }
         </style>
         <script id="resumoCanHaz" type="text/html">
-            <h2>Até hoje {{ passageiros }} pessoas viajaram por {{ dias }} totalizando {{ reais }}.</h2>
+            <h2>Nesse ano {{ passageiros }} pessoas já viajaram o equivalente à {{ dias }}, totalizando R${{ reais }}.</h2>
             <h3>O príncipal destino foi {{ maior.cidade.nome }} com {{ maior.cidade.viagens }} viagens.</h3>
             <h3>O orgão que mais viajou foi {{ maior.orgao.nome }} com {{maior.orgao.viagens }} viagens.</h3>
             <h3>O passageiro que mais viajou foi {{ maior.passageiro.nome }} e viajou {{ maior.passageiro.viagens }} vezes!!!</h3>
@@ -20,8 +37,12 @@
         </script>
         
         <script id="viagemCanHaz" type="text/html">
-            <p><b>{{ nome }}</b> do <b>{{ orgao }}</b> viajou para <b>{{ destino }}</b>
-            em <b>{{ data }}</b> e por <b>{{ duracao }}</b> dias.</p>
+            <span class="viagem">
+                <p>
+                    <b>{{ nome }}</b> da <b>{{ orgao }}</b> viajou para <b>{{ destino }}</b> em <b>{{ data }}
+                </p>
+                <button class="btn-info"><b>{{ duracao }}</b><br/>dias</button>
+            </span>
         </script>
         
         <script id="top15CanHaz" type="text/html">
@@ -36,15 +57,19 @@
             $(document).ready(function() {
                 var q = my.query;
                 carregaFiltros(q);
-                render(q, "viagem");
+                render(q, "resumo");
             });
         </script>
         
     </head>
     <body>
-    <div class="container">
+    <div class="container-fluid">
         <div id="header">
             <h1>Voos Online!</h1>
+            <form class="well">
+            <input type="text" class="input-medium" id="destino" name="destino" placeholder="sua cidade..."></input>
+            <button id="destino-btn" class="btn">OK</button>
+            </form>
         </div>
         <div id="resumo">
         </div>
