@@ -16,9 +16,9 @@
         <link rel="stylesheet" type="text/css" href="./css/main.css" />
         <link rel="stylesheet" type="text/css" href="./style.css"/>
         <script id="resumoCanHaz" type="text/html">
-            <p align=center>Diárias de XXXXXXX em 2012:</p>
+            <p align=center>Diárias de {{ origem }} em 2012:</p>
             <p><b>{{ passageiros }}</b> viajantes</p>
-            <p><b>XXX</b> diárias, equivalentes a <b>{{ dias }}</b></p> 
+            <p><b>{{ diarias }}</b> diárias, equivalentes a <b>{{ dias }}</b></p> 
             <p><b>{{ reais }}</b> em gastos públicos</p>
             <p>Principal destino: <b>{{ maior.cidade.nome }}</b>, com <b>{{ maior.cidade.viagens }}</b> diárias</p>
             <p>Órgão campeão: <b>{{ maior.orgao.nome }}</b>, com <b>{{maior.orgao.viagens }}</b> diárias</p>

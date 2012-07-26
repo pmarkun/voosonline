@@ -8,7 +8,7 @@ t.resumo.query = function(query) {
         "passageiros" : {
             "terms" : {
                 "field" : "Favorecido",
-                "size" : 40
+                "size" : 1
                 }
             },
         "orgao" : {
@@ -66,7 +66,9 @@ t.resumo.render =  function(raw_data) {
     
     var data = {};
     data.passageiros = raw_data.facets.cidade.total;
+    data.origem = origem;
     data.dias = dias;
+    data.diarias = raw_data.hits.total;
     data.reais = reais;
     data.maior = {};
     data.maior.cidade = {};
