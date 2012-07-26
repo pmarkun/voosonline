@@ -1,14 +1,15 @@
-    .viagem {
+body {
+    background-image:url('img/textura.jpg');
+    background-repeat:repeat-y-x;
+    color:#424242;
+}
+
+h2{
+    font-size: 1em;
+}
+
+.viagem {
     clear:both;
-}
-
-.viagem p {
-    padding-top: 10px;
-}
-
-ul {
-    list-style-type: none;
-    margin-left: 0;
 }
 
 li {
@@ -35,10 +36,16 @@ li:nth-child(even) {
 
 .well {
     padding: 5px;
-    margin: 5px auto 5px;
+    margin: 10px auto 10px;
 }
 
-#mais {
+#voltar {
+    float: left;
+    margin-top: 5px;
+}
+
+#avancar {
     float: right;
+    margin-top: 5px;
 }
 
