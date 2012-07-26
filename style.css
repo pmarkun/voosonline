@@ -36,7 +36,7 @@ li:nth-child(even) {
 
 .well {
     padding: 5px;
-    margin: 5px auto 5px;
+    margin: 5px auto 0px;
 }
 
 #voltar {
