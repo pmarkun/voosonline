@@ -16,14 +16,13 @@
         <link rel="stylesheet" type="text/css" href="./css/main.css" />
         <link rel="stylesheet" type="text/css" href="./style.css"/>
         <script id="resumoCanHaz" type="text/html">
-            <p align=center>Diárias de {{ origem }} em 2012:</p>
-            <p><b>{{ passageiros }}</b> viajantes</p>
-            <p><b>{{ diarias }}</b> diárias, equivalentes a <b>{{ dias }}</b></p> 
-            <p><b>{{ reais }}</b> em gastos públicos</p>
-            <p>Principal destino: <b>{{ maior.cidade.nome }}</b>, com <b>{{ maior.cidade.viagens }}</b> diárias</p>
-            <p>Órgão campeão: <b>{{ maior.orgao.nome }}</b>, com <b>{{maior.orgao.viagens }}</b> diárias</p>
-            <p>Viajante campeão: <b>{{ maior.passageiro.nome }}</b>, com <b>{{ maior.passageiro.viagens }}</b> diárias</p>
-            <p>A última diária de viagem foi paga para <b>{{ ultima.viagem.nome }}</b>, do órgão <b>{{ ultima.viagem.orgao }}</b>, para <b>{{ ultima.viagem.destino }}</b>, em <b>{{ ultima.viagem.data }}</b>, com duração de <b>{{ ultima.viagem.duracao }}</b> dias.</p>
+            <h2 align=center>Viagens do governo de {{ origem }}, em 2012:</h2>
+            <li><b>{{ diarias }}</b> diárias, equivalentes a <b>{{ dias }}</b></li> 
+            <li><b>{{ reais }}</b> em gastos públicos</li>
+            <li>Principal destino: <b>{{ maior.cidade.nome }}</b>, com <b>{{ maior.cidade.viagens }}</b> diárias</li>
+            <li>Órgão campeão: <b>{{ maior.orgao.nome }}</b>, com <b>{{maior.orgao.viagens }}</b> diárias</li>
+            <li>Viajante campeão: <b>{{ maior.passageiro.nome }}</b>, com <b>{{ maior.passageiro.viagens }}</b> diárias</li>
+            <li>A última diária de viagem foi paga para <b>{{ ultima.viagem.nome }}</b>, do órgão <b>{{ ultima.viagem.orgao }}</b>, para <b>{{ ultima.viagem.destino }}</b>, em <b>{{ ultima.viagem.data }}</b>, com duração de <b>{{ ultima.viagem.duracao }}</b> dias.</li>
         </script>
         
         <script id="viagemCanHaz" type="text/html">
@@ -62,12 +61,12 @@
         <div id="resumo">
         </div>
         <div id="viagem-holder">
-            <ul id="viagem">
-        
-            </ul>
+            <div id="viagem">
+            </div>
             <!-- <div id="controls"><a href="#" class="btn">Previous</a><a href="#" class="btn">Next</a></div> -->
         </div>
-        <div id="mais" class="btn">ver + viagens</div>
+        <div id="voltar" class="btn"><<</div>
+        <div id="avancar" class="btn">>></div>
     </div>
     </body>
 </html>
