@@ -13,7 +13,7 @@ h2{
 }
 
 li {
-    padding: 7px;
+    padding: 5px;
 }
 
 li:nth-child(odd) {
@@ -36,7 +36,7 @@ li:nth-child(even) {
 
 .well {
     padding: 5px;
-    margin: 10px auto 10px;
+    margin: 5px auto 5px;
 }
 
 #voltar {
