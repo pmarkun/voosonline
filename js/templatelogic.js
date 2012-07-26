@@ -85,11 +85,14 @@ t.resumo.render =  function(raw_data) {
 }
 
 t.viagem = {}
-t.viagem.query = function(query) {
+t.viagem.query = function(query, options) {
+    if (options.from) {
+        query.from = options.from;
+    }
     return query;
 }
 t.viagem.render = function(raw_data){
-    data = []
+    data = [];
     $.each(raw_data.hits.hits, function(key, item) {
         var bit = {}
         bit.nome = item._source.Favorecido;

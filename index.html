@@ -26,6 +26,10 @@
                 width:15%;
                 float:right;
             }
+            
+            #controls {
+                clear:both;
+            }
         </style>
         <script id="resumoCanHaz" type="text/html">
             <h2>Nesse ano {{ passageiros }} pessoas já viajaram o equivalente à {{ dias }}, totalizando R${{ reais }}.</h2>
@@ -56,8 +60,10 @@
         <script>
             $(document).ready(function() {
                 var q = my.query;
+                var options = { "from" : 15 };
                 carregaFiltros(q);
-                render(q, "resumo");
+                //render(q, "resumo", options);
+                render(q, "viagem", options);
             });
         </script>
         
@@ -67,13 +73,18 @@
         <div id="header">
             <h1>Voos Online!</h1>
             <form class="well">
-            <input type="text" class="input-medium" id="destino" name="destino" placeholder="sua cidade..."></input>
-            <button id="destino-btn" class="btn">OK</button>
+            <input type="text" class="input-medium" id="origem" name="origem" placeholder="sua cidade..."></input>
+            <button id="origem-btn" class="btn">OK</button>
             </form>
         </div>
         <div id="resumo">
         </div>
-        <div id="viagem"></div>
+        <div id="viagem-holder">
+            <div id="viagem">
+        
+            </div>
+            <!-- <div id="controls"><a href="#" class="btn">Previous</a><a href="#" class="btn">Next</a></div> -->
+        </div>
     </div>
     </body>
 </html>

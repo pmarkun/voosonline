@@ -74,9 +74,9 @@ function montaUrl(url, q) {
 function carregaFiltros(q) {
     var filters = []
     
-    if (gup("destino")) {
-        filters.push({ term : { "Destino" : gup("destino") }});
-        $("input#destino").val(gup("destino"));
+    if (gup("origem")) {
+        filters.push({ term : { "Origem" : gup("origem") }});
+        $("input#origem").val(gup("origem"));
     }
     
     if (gup("favorecido")) {
@@ -84,14 +84,14 @@ function carregaFiltros(q) {
         //$("input#partido").val(gup("partido"))
     }
     
-    if (gup("tags")) {
-        filters.push({ term : { "tags" : gup("tags") }});
-        $("input#partido").val(gup("partido"));
+    if (gup("favorecido")) {
+        filters.push({ term : { "Favorecido" : gup("favorecido") }});
+        //$("input#partido").val(gup("partido"));
     }
     
-    if (gup("orador")) {
-        filters.push({ term : { "orador" : gup("orador") }});
-        $("input#orador").val(gup("orador"));
+    if (gup("orgao")) {
+        filters.push({ term : { "Orgao" : gup("orgao") }});
+        //$("input#orador").val(gup("orador"));
     }
     
     if (gup("data_inicio")) {
@@ -126,8 +126,8 @@ function carregaFiltros(q) {
     return q
 }
 
-function render(q, template) {
-    url = montaUrl(my.base_url, t[template].query(q));
+function render(q, template, options) {
+    url = montaUrl(my.base_url, t[template].query(q, options));
     $.getJSON(url, function(raw_data) {
             data = t[template].render(raw_data);
             if (data.toString() != "[object Object]") {
