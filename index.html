@@ -21,7 +21,7 @@
             <li><b>{{ reais }}</b> em gastos públicos</li>
             <li>Principal destino: <b>{{ maior.cidade.nome }}</b>, com <b>{{ maior.cidade.viagens }}</b> diárias</li>
             <li>Órgão campeão: <b>{{ maior.orgao.nome }}</b>, com <b>{{maior.orgao.viagens }}</b> diárias</li>
-            <li>Programa campeão: <b>XXXXXXXXXXX</b>, com <b>{{ maior.passageiro.viagens }}</b> diárias</li>
+            <li>Motivo campeão: <b>{{ maior.motivo.nome }} </b>, com <b>{{ maior.motivo.viagens }}</b> diárias</li>
             <li>Viajante campeão: <b>{{ maior.passageiro.nome }}</b>, com <b>{{ maior.passageiro.viagens }}</b> diárias</li>
             <li>A última viagem foi de <b>{{ ultima.viagem.nome }}</b>, do órgão <b>{{ ultima.viagem.orgao }}</b>, para <b>{{ ultima.viagem.destino }}</b>, em <b>{{ ultima.viagem.data }}</b>, com duração de <b>{{ ultima.viagem.duracao }}</b> dias</li>
         </script>
@@ -47,14 +47,46 @@
                 carregaFiltros(q);
                 render(q, "resumo", options);
                 $("#voltar").attr("disabled", true);
-                $("#avancar").click();
-                //render(q, "viagem", options);
+                $("#avancar").click(function (){
+                            options.from += 4;
+                            $("#voltar").attr("disabled", false);
+                            change("resumo", "viagem", options);
+                            $("#resumo").fadeOut();
+                            });
             });
             function change(last, next, options) {
-                $("#"+last).fadeOut();
+                $('#avancar').unbind('click');
+                $('#voltar').unbind('click');
+                
+                
                 var q = my.query;
                 carregaFiltros(q);
                 render(q, next, options);
+                
+                $("#avancar").click(function (){
+                            options.from += 4;
+                            $("#voltar").attr("disabled", false);
+                            change("viagem", "viagem", options);
+                            $("#resumo").fadeOut();
+                            });
+                
+                
+                $("#voltar").click(function (){
+                        
+                        if (options.from == 4) {
+                            options.from += -4;
+                            change("viagem", "resumo", options);
+                            $("#resumo").fadeIn();
+                            $("#viagem").html("");
+                            $("#voltar").attr("disabled", true);
+                            
+                        }
+                        else {
+                            options.from += -4;
+                            change("viagem", "viagem", options);
+                            
+                        }
+                    });
             }
         </script>
         

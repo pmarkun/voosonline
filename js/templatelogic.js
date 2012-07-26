@@ -29,6 +29,12 @@ t.resumo.query = function(query) {
                 "size" : 1
                 }
             },
+        "motivo" : {
+            "terms" : {
+                "field" : "Motivo",
+                "size" : 1
+                }
+            },
         "valor" : {
             "statistical" : {
                 "field" : "Valor",
@@ -80,6 +86,9 @@ t.resumo.render =  function(raw_data) {
     data.maior.passageiro = {};
     data.maior.passageiro.nome = raw_data.facets.passageiro.terms[0].term;
     data.maior.passageiro.viagens = raw_data.facets.passageiro.terms[0].count;
+    data.maior.motivo = {};
+    data.maior.motivo.nome = raw_data.facets.motivo.terms[0].term;
+    data.maior.motivo.viagens = raw_data.facets.motivo.terms[0].count;
     
     data.ultima = {};
     data.ultima.viagem = {};

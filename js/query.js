@@ -127,13 +127,14 @@ function carregaFiltros(q) {
 }
 
 function render(q, template, options) {
+    $("#"+template).html("");
     url = montaUrl(my.base_url, t[template].query(q, options));
     $.getJSON(url, function(raw_data) {
             data = t[template].render(raw_data);
             if (data.toString() != "[object Object]") {
                 $.each(data, function(key, item) {
                     rendered = ich[template+"CanHaz"](item);
-                    $("#"+template).append(rendered.hide().fadeIn(2000));
+                    $("#"+template).append(rendered.hide().fadeIn());
                 });
             }
             else {
