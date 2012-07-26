@@ -92,6 +92,7 @@ t.resumo.render =  function(raw_data) {
 
 t.viagem = {}
 t.viagem.query = function(query, options) {
+    query.size = 4;
     if (options.from) {
         query.from = options.from;
     }
