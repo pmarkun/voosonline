@@ -1,0 +1,44 @@
+    .viagem {
+    clear:both;
+}
+
+.viagem p {
+    padding-top: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin-left: 0;
+}
+
+li {
+    padding: 7px;
+}
+
+li:nth-child(odd) {
+    background-color: #E7E7E7;
+}
+
+li:nth-child(even) {
+    background-color: #F2F1F0;
+}
+
+#controls {
+    clear:both;
+}
+
+.input {
+    height: 30px;
+    margin-top: 10px;
+    placeholder: "Cidade de origem"
+}
+
+.well {
+    padding: 5px;
+    margin: 5px auto 5px;
+}
+
+#mais {
+    float: right;
+}
+
