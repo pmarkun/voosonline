@@ -42,11 +42,19 @@
         <script>
             $(document).ready(function() {
                 var q = my.query;
-                var options = { "from" : 15 };
+                var options = { "from" : 0 };
                 carregaFiltros(q);
                 render(q, "resumo", options);
+                $("#voltar").attr("disabled", true);
+                $("#avancar").click();
                 //render(q, "viagem", options);
             });
+            function change(last, next, options) {
+                $("#"+last).fadeOut();
+                var q = my.query;
+                carregaFiltros(q);
+                render(q, next, options);
+            }
         </script>
         
     </head>

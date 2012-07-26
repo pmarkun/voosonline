@@ -133,12 +133,12 @@ function render(q, template, options) {
             if (data.toString() != "[object Object]") {
                 $.each(data, function(key, item) {
                     rendered = ich[template+"CanHaz"](item);
-                    $("#"+template).append(rendered);
+                    $("#"+template).append(rendered.hide().fadeIn(2000));
                 });
             }
             else {
                 rendered = ich[template+"CanHaz"](data);
-                $("#"+template).append(rendered);
+                $("#"+template).append(rendered.hide().fadeIn());
             }
     });
     return 'ok'
