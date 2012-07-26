@@ -58,6 +58,12 @@ t.resumo.render =  function(raw_data) {
     else {
         dias = dias.toString() + " dias";
     }
+    
+    var origem = gup("origem");
+    if (origem == "") {
+        origem = "RIO GRANDE DO SUL";
+    }
+    
     var data = {};
     data.passageiros = raw_data.facets.cidade.total;
     data.dias = dias;
