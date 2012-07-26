@@ -16,13 +16,14 @@
         <link rel="stylesheet" type="text/css" href="./css/main.css" />
         <link rel="stylesheet" type="text/css" href="./style.css"/>
         <script id="resumoCanHaz" type="text/html">
-            <h2 align=center>Viagens do governo de {{ origem }}, em 2012:</h2>
+            <h2 align=center>{{ origem }} | 2012:</h2>
             <li><b>{{ diarias }}</b> diárias, equivalentes a <b>{{ dias }}</b></li> 
             <li><b>{{ reais }}</b> em gastos públicos</li>
             <li>Principal destino: <b>{{ maior.cidade.nome }}</b>, com <b>{{ maior.cidade.viagens }}</b> diárias</li>
             <li>Órgão campeão: <b>{{ maior.orgao.nome }}</b>, com <b>{{maior.orgao.viagens }}</b> diárias</li>
+            <li>Programa campeão: <b>XXXXXXXXXXX</b>, com <b>{{ maior.passageiro.viagens }}</b> diárias</li>
             <li>Viajante campeão: <b>{{ maior.passageiro.nome }}</b>, com <b>{{ maior.passageiro.viagens }}</b> diárias</li>
-            <li>A última diária de viagem foi paga para <b>{{ ultima.viagem.nome }}</b>, do órgão <b>{{ ultima.viagem.orgao }}</b>, para <b>{{ ultima.viagem.destino }}</b>, em <b>{{ ultima.viagem.data }}</b>, com duração de <b>{{ ultima.viagem.duracao }}</b> dias.</li>
+            <li>A última viagem foi de <b>{{ ultima.viagem.nome }}</b>, do órgão <b>{{ ultima.viagem.orgao }}</b>, para <b>{{ ultima.viagem.destino }}</b>, em <b>{{ ultima.viagem.data }}</b>, com duração de <b>{{ ultima.viagem.duracao }}</b> dias</li>
         </script>
         
         <script id="viagemCanHaz" type="text/html">
