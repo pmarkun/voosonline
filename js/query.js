@@ -1,5 +1,5 @@
 SETTINGS = {}
-SETTINGS['base_url'] = "http://127.0.0.1:9200/esfera/diariasrs2"
+SETTINGS['base_url'] = "http://thedatahub.org/api/data/f98339ab-692d-4bdf-a2da-1289871c1b94"
 my = {};
 my.base_url = SETTINGS['base_url'];
 my.query = {
